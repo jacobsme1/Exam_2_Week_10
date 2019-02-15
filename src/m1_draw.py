@@ -80,7 +80,7 @@ def test_draw_a_picture():
 #   The is_prime function is supplied.  Do NOT change is_prime
 #     """
 ###############################################################################
-# TODO: 1  READ the doc-string for the is_prime function defined below.
+# DONE: 1  READ the doc-string for the is_prime function defined below.
 # You do NOT need to understand its implementations,
 # just its specification (per the doc-string).
 # You should  ** CALL **  functions as needed in implementing the
@@ -127,8 +127,54 @@ def is_prime(n):
 #
 #
 #
+# def draw_a_picture(point, n, color, window):
+#     """
+#     See   m1_draw_problem_picture.pdf   in this project for pictures
+#     that may help you better understand the following specification:
+#
+#     What comes in:
+#       -- An rg.Point.
+#       -- A positive integer n.
+#       -- A color
+#       -- An rg.RoseWindow.
+#
+#     What goes out:  Nothing (i.e., None).
+#     Side effects:
+#       Draws an rg.Circle with the given point as the center.
+#       The radius of the rg.Circle is 100 pixels
+#       Draws an rg.Rectangle with the given point as the center.
+#       The width of the Rectangle is 160 pixels and the height is 80 pixels
+#       Draws n lines from the Center of the Rectangle to the top line
+#       of the Rectangle that are equally spaced
+#       The color is used as the line colors unless the number of the line
+#       is prime.  If the number of the line is prime,
+#       the color should be 'orange'. The fist line drawn should be
+#       the color given because one is not considered prime.
+#
+#       -- There is a 0.5 second pause after each rg.Circle is drawn.
+#       Must  ** NOT close **   the window.
+#
+#     Type hints:
+#       :type circle: rg.Circle
+#       :type n: int
+#       :type window: rg.RoseWindow
+#   The is_prime function is supplied.  Do NOT change is_prime
+#     """
 def draw_a_picture(point, n, color, window):
-
+    circle = rg.Circle(point,100)
+    circle.attach_to(window)
+    point1 = rg.Point(point.x-80,point.y-40)
+    point2 = rg.Point(point.x + 80, point.y + 40)
+    rectangle = rg.Rectangle(point1,point2)
+    rectangle.attach_to(window)
+    for k in range(n):
+        point3 = rg.Point(point1.x+160*k//(n-1),point1.y)
+        line = rg.Line(point3,point)
+        line.color = color
+        if is_prime(k+1) == True:
+            line.color = "orange"
+        line.attach_to(window)
+    window.render(0.5)
     pass
 
 
