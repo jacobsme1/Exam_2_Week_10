@@ -74,13 +74,13 @@ class Bank(object):
           #   b1. account_number is 'A1'
 
           b2.withdraw(50.25)
-          #   b2.name is 'Lovelace'
+          ##   b2.name is 'Lovelace'
           #   b2.balance is 10.15 (no money is withdrawn)
           #   b2.account_number is 'A2'
           #   an error message is printed because there are insufficient funds
         """
     # ---------------------------------------------------------------------
-    # TODO: 4. Implement and test the withdraw method
+    # DONE: 4. Implement and test the withdraw method
     #     Implement your own test code, before you write your method
     #     Insert your test code for withdraw, where indicated
     #     Scroll down near the bottom of this screen
@@ -151,7 +151,7 @@ def run_test_init():
 
 
 # ---------------------------------------------------------------------
-# TODO: 3. Implement your test for the withdraw method below
+# DONE: 3. Implement your test for the withdraw method below
 # ---------------------------------------------------------------------
 def run_test_withdraw():
     b2 = Bank('Bob', 50, 'y2348u2u3e9')
